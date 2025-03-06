@@ -399,6 +399,23 @@ If you like AlphaTims you can give us a [star](stargazers) to boost our visibili
 For more information see [the Contributors License Agreement](misc/CLA.md).
 
 ---
+
+## Developer Guide
+This document gathers information on how to develop and contribute to this project.
+
+### Release process
+
+#### Tagging of changes
+In order to have release notes automatically generated, changes need to be tagged with labels.
+The following labels are used (should be safe-explanatory):
+`breaking-change`, `bug`, `enhancement`.
+
+#### Release a new version
+This package uses a shared release process defined in the
+[alphashared](https://github.com/MannLabs/alphashared) repository. Please see the instructions
+[there](https://github.com/MannLabs/alphashared/blob/reusable-release-workflow/.github/workflows/README.md#release-a-new-version)
+
+---
 ## Changelog
 
 The following changes were introduced in the following versions of AlphaTims. Download the latest version in the [installation section](#installation).
