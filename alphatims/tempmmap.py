@@ -49,7 +49,7 @@ def make_temp_dir(prefix: str = "temp_mmap_") -> tuple:
     logging.info(
         f"Memory-mapped arrays are written to temporary directory {temp_dir_name}. "
         "Cleanup of this folder is OS dependent and might need to be triggered manually!"
-        f"Current space: {shutil.disk_usage(TEMP_DIR_NAME)[-1]:,}"
+        f"Current space: {shutil.disk_usage(temp_dir_name)[-1]:,}"
     )
 
     return _temp_dir, temp_dir_name
