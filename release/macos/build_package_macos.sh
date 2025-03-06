@@ -16,7 +16,7 @@ cp release/logos/alpha_logo.icns ${CONTENTS_FOLDER}/Resources
 mv dist_pyinstaller/alphatims_gui ${CONTENTS_FOLDER}/MacOS
 cp release/macos/Info.plist ${CONTENTS_FOLDER}
 cp release/macos/alphatims_terminal ${CONTENTS_FOLDER}/MacOS
-cp ./LICENSE ${CONTENTS_FOLDER}/Resources/LICENSE
+cp ./LICENSE.txt ${CONTENTS_FOLDER}/Resources/LICENSE
 cp release/logos/alpha_logo.png ${CONTENTS_FOLDER}/Resources
 
 # link _internal folder containing the python libraries to the Frameworks folder where they are expected
