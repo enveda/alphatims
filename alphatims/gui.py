@@ -357,7 +357,7 @@ main_part = pn.Column(
             download_citation_button,
             download_new_version_button,
         ),
-        background='#eaeaea',
+        styles=dict(background='#eaeaea'),
         align='center',
         sizing_mode='stretch_width',
         # height=190,
@@ -388,7 +388,7 @@ main_part = pn.Column(
         width=800,
         margin=(-15, 0, 0, 0)
     ),
-    background='#eaeaea',
+    styles=dict(background='#eaeaea'),
     sizing_mode='stretch_width',
     height=360,
     margin=(5, 0, 10, 0)
@@ -847,7 +847,7 @@ frame_selection_card = pn.Card(
     collapsed=False,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -875,7 +875,7 @@ scan_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -913,7 +913,7 @@ quad_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -941,7 +941,7 @@ tof_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -967,7 +967,7 @@ intensity_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -993,7 +993,7 @@ axis_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -1053,7 +1053,7 @@ export_data_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    styles=dict(background='#EAEAEA'),
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -1685,6 +1685,7 @@ def run(port=None, bruker_raw_data=None):
         websocket_origin = f"{ip_address}:{port}"
     else:
         websocket_origin = None
+        port=0  # chooses port automatically
     SERVER = LAYOUT.show(
         title='AlphaTims',
         threaded=True,
