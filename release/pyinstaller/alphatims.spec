@@ -26,15 +26,15 @@ datas, binaries, hidden_imports = PyInstaller.utils.hooks.collect_all(
 )
 
 # add extra packages that don't have pyinstaller hooks
-# extra_pkgs = ["alphabase", ] # other alphaX packages would be added here
-# for pkg in extra_pkgs:
-# 	_datas, _binaries, _hidden_imports = PyInstaller.utils.hooks.collect_all(
-# 		pkg,
-# 		include_py_files=True
-# 	)
-# 	datas+=_datas
-# 	binaries+=_binaries
-# 	hidden_imports+=_hidden_imports
+extra_pkgs = ["param", "holoviews" ] # other alphaX packages would be added here
+for pkg in extra_pkgs:
+	_datas, _binaries, _hidden_imports = PyInstaller.utils.hooks.collect_all(
+		pkg,
+		include_py_files=True
+	)
+	datas+=_datas
+	binaries+=_binaries
+	hidden_imports+=_hidden_imports
 
 # prepare hidden imports and datas
 hidden_imports = [h for h in hidden_imports if "__pycache__" not in h]
@@ -51,7 +51,7 @@ a = Analysis(
 	hiddenimports=hidden_imports,
 	hookspath=[],
 	runtime_hooks=[],
-	excludes=[],
+	excludes=[h for h in hidden_imports if "datashader" in h],
 	win_no_prefer_redirects=False,
 	win_private_assemblies=False,
 	cipher=block_cipher,
@@ -103,5 +103,5 @@ else: # non-linux
 		strip=False,
 		upx=True,
 		upx_exclude=[],
-		name=exe_name
+		name=exe_name,
 	)
