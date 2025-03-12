@@ -18,4 +18,4 @@ jobs:
     with:
       package_name: alphatims
       commitish_to_release: ${{ inputs.commitish_to_release }}
-      build_nodejs_ui: false
+      python_version: 3.8
