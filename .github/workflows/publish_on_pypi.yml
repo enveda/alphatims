@@ -17,6 +17,7 @@ jobs:
       package_name: alphatims
       tag_to_release: ${{ inputs.tag_to_release }}
       test_stable: true
+      python_version: 3.8
     secrets:
       test_pypi_api_token: ${{ secrets.TEST_PYPI_API_TOKEN }}
       pypi_api_token: ${{ secrets.PYPI_API_TOKEN }}

@@ -847,7 +847,7 @@ frame_selection_card = pn.Card(
     collapsed=False,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -875,7 +875,7 @@ scan_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -913,7 +913,7 @@ quad_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -941,7 +941,7 @@ tof_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -967,7 +967,7 @@ intensity_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -993,7 +993,7 @@ axis_selection_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -1053,7 +1053,7 @@ export_data_card = pn.Card(
     collapsed=True,
     width=430,
     margin=(10, 10, 10, 15),
-    background='#EAEAEA',
+    background='#eaeaea',
     header_background='EAEAEA',
     css_classes=['axis_selection_settings']
 )
@@ -1414,7 +1414,7 @@ def init_settings(*args):
         update_intensity_widgets_to_stack()
 
         frames_msmstype = DATASET.frames.query('MsMsType == 0')
-        step = len(frames_msmstype) // 10
+        step = max(1, len(frames_msmstype) // 10)
         player.options = frames_msmstype.loc[1::step, 'Id'].to_list()
         player.start, player.end = STACK["frames"]
 
@@ -1685,6 +1685,7 @@ def run(port=None, bruker_raw_data=None):
         websocket_origin = f"{ip_address}:{port}"
     else:
         websocket_origin = None
+        # port=0  # chooses port automatically
     SERVER = LAYOUT.show(
         title='AlphaTims',
         threaded=True,

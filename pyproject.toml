@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alphatims"
+requires-python = ">=3.8"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+
+authors = [
+    {name = "Sander Willems", email = "opensource@alphapept.com"},
+    {name = "Eugenia Voytik", email = "opensource@alphapept.com"}
+]
+
+readme = "README.md"
+keywords = [
+    "ms",
+    "mass spectrometry",
+    "bruker",
+    "timsTOF",
+    "proteomics",
+    "bioinformatics",
+    "data indexing",
+    "AlphaPept ecosystem",
+]
+license = {file = "LICENSE.txt"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[project.urls]
+
+"Mann Labs Homepage" = "https://www.biochem.mpg.de/mann"
+Repository=  "https://github.com/MannLabs/alphatims"
+Documentation =  "https://alphatims.readthedocs.io/en/latest/"
+"PyPi" =  "https://pypi.org/project/alphatims/"
+"Scientific paper"=  "https://doi.org/10.1016/j.mcpro.2021.100149"
+Issues = "https://github.com/MannLabs/alphatims/issues"
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.dynamic]
+# https://stackoverflow.com/a/73600610
+dependencies = {file = ["requirements/requirements_loose.txt"]}
+
+optional-dependencies.stable = { file = ["requirements/requirements.txt"] }
+optional-dependencies.legacy = { file = ["requirements/requirements_legacy_loose.txt"] }
+optional-dependencies.legacy-stable = { file = ["requirements/requirements_legacy.txt"] }
+optional-dependencies.plotting = { file = ["requirements/requirements_plotting_loose.txt"] }  # TODO rename to 'gui'
+optional-dependencies.plotting-stable = { file = ["requirements/requirements_plotting.txt"] }
+optional-dependencies.development = { file = ["requirements/requirements_development.txt"] }
+
+version = {attr = "alphatims.__version__"}
+
+[project.scripts]
+alphatims = "alphatims.cli:run"

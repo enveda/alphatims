@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# make sure this file itself is executable
-xattr -dr com.apple.quarantine /Applications/AlphaTims.app
-chmod -R 577 /Applications/AlphaTims.app
-echo "Postinstall finished"
